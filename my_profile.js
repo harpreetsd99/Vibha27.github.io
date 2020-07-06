@@ -70,6 +70,7 @@ $(document).ready(function(){
         var lname = $('#lname');
         var textarea1 = $('#textarea1');
         var email = $('#email');
+        var phone = $('#mob');
         var city = $("#city option:selected");
         var state = $("#state option:selected");
 
@@ -77,6 +78,7 @@ $(document).ready(function(){
             first_name : fname.val(),
             last_name : lname.val(),
             email : email.val(),
+            phone_no : phone.val(),
             address: textarea1.val(),
             city : city.text(),
             state: state.text()
