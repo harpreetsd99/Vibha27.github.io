@@ -13,9 +13,9 @@ var state = stateRef.options[stateRef.selectedIndex];
 const db = firebase.firestore();
 const users_db = db.collection('users');
 
-const phone_no = localStorage.getItem('phone');
 
 function onLoad() {
+    const phone_no = localStorage.getItem('phone');
 
     users_db.doc(phone_no).get()
     .then(snapshot => {
