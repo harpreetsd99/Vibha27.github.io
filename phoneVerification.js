@@ -35,7 +35,7 @@ $( document ).ready(function(){
         phone_no : phoneNumber
       })
       .then((resp) => {
-        localStorage.setItem("phone", phoneNumber);
+        localStorage.setItem("phone", resp.data().phone_no);
         window.location.assign('./index_signin');
         
       })
