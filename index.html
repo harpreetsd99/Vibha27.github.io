@@ -26,7 +26,7 @@
 	</div>
 
     <ul class="sidenav" id="mobile-demo">
-		<li id="login"><a href="signin.html">Login/Sign-Up</a></li>
+		<li id="login-mob"><a href="signin.html">Login/Sign-Up</a></li>
     </ul>
     <!--Navigation end-->
 
@@ -39,7 +39,7 @@
             <h5 class="header col s12 light">One stop place for healthy fruits and vegetables!</h5>
           </div>
           <div class="row center">
-            <a href="#shop" id="" class="btn-large waves-effect waves-light orange">Shop Now</a>
+            <a href="./Second_page.html?Category=Others" id="" class="btn-large waves-effect waves-light orange">Shop Now</a>
           </div>
           <br><br>
     
@@ -277,17 +277,30 @@
             
             firebase.auth().onAuthStateChanged(function(user) {
               if (user) {
-                $('#login').remove();
-                $('#mobile-demo').append('<li><a href="my_profile.html">My Profile</a></li><li id="signOut">Sign Out</li>');
-                $('#nav-mobile').append('<li><a href="my_profile.html">My Profile</a></li><li id="signOut">Sign Out</li>');
+                $('#login').hide();
+                $('#login-mob').hide();
+                $('#mobile-demo').append('<li><a href="my_profile.html">My Profile</a></li><li id="signOut"><a href="">Sign Out</a></li>');
+                $('#nav-mobile').append('<li><a href="my_profile.html">My Profile</a></li><li id="signOut-mob"><a href="">Sign Out</a></li>');
               } else {
                 // No user is signed in.
                 console.log("not signed in");
-              
+                $('#login').show();
+                $('#login-mob').show();
                 
               }
             });
             $('#signOut').click(()=> {
+              firebase.auth().signOut()
+              .then(() => {
+                console.log('Signed Out');
+                localStorage.removeItem('phone');
+                window.location.assign('./index.html');
+              })
+              .catch(e=>{
+              console.error('Sign Out Error', e);
+              });
+            });
+            $('#signOut-mob').click(()=> {
               firebase.auth().signOut()
               .then(() => {
                 console.log('Signed Out');
