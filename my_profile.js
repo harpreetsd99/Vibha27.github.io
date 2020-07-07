@@ -77,6 +77,7 @@ $(document).ready(function(){
         users_db.doc(phone_no).set({
             first_name : fname.val(),
             last_name : lname.val(),
+            admin: false,
             email : email.val(),
             phone_no : phone.val(),
             address: textarea1.val(),

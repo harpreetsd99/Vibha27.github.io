@@ -227,6 +227,7 @@
               firebase.auth().signOut()
               .then(() => {
                 console.log('Signed Out');
+                localStorage.removeItem('phone');
                 window.location.assign('./index.html');
               })
               .catch(e=>{
