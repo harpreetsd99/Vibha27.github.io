@@ -223,17 +223,7 @@
         $(document).ready(function(){
             $('.sidenav').sidenav();
             $('.slider').slider();
-            $('#signOut').click(()=> {
-              firebase.auth().signOut()
-              .then(() => {
-                console.log('Signed Out');
-                localStorage.removeItem('phone');
-                window.location.assign('./index.html');
-              })
-              .catch(e=>{
-              console.error('Sign Out Error', e);
-              });
-            });
+            
         });
        
     </script>
