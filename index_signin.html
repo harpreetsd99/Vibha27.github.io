@@ -21,7 +21,7 @@
 			   	 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			   	<ul id="nav-mobile" class="right hide-on-med-and-down">
 			   		<li><a href="my_profile.html">My Profile</a></li>
-            <li><a href="index.html">Sign Out</a></li>
+            <li><a href="index.html" id="signOut">Sign Out</a></li>
 			     </ul>
 		    </div>
 		</nav>
@@ -29,7 +29,7 @@
 
     <ul class="sidenav" id="mobile-demo">
 		<li><a href="my_profile.html">My Profile</a></li>
-		<li id="signout"><a href="index.html">Sign Out</a></li>
+		<li ><a href="index.html" id="signOut">Sign Out</a></li>
     </ul>
     <!--Navigation end-->
 
@@ -223,8 +223,14 @@
         $(document).ready(function(){
             $('.sidenav').sidenav();
             $('.slider').slider();
-            $('#signout').click(()=> {
-              localStorage.removeItem("phone")
+            $('#signOut').click(()=> {
+              firebase.auth().signOut()
+              .then(() => {
+                console.log('Signed Out');
+              })
+              .catch(e=>{
+              console.error('Sign Out Error', e);
+              });
             });
         });
        

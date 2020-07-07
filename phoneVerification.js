@@ -92,7 +92,7 @@ function signInWithPhone(sentCodeId,phoneNumber) {
         .then((snapshot) => {
 
             if(snapshot.exists) {
-              localStorage.setItem("phone", phoneNumber);
+              // localStorage.setItem("phone", phoneNumber);
               window.location.assign('./index_signin.html');
 
             }
