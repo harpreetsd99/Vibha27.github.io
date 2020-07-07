@@ -19,14 +19,14 @@
 			   	<a href="#" id="logo" class="brand-logo orange-text">FROOD</a>
 			   	 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			   	<ul id="nav-mobile" class="right hide-on-med-and-down">
-			   		<li><a href="signin.html">Login/Sign-Up</a></li>
+			   		<li id="signOut"><a href="signin.html">Login/Sign-Up</a></li>
 			     </ul>
 		    </div>
 		</nav>
 	</div>
 
     <ul class="sidenav" id="mobile-demo">
-		<li><a href="signin.html">Login/Sign-Up</a></li>
+		<li id="signOut"><a href="signin.html">Login/Sign-Up</a></li>
     </ul>
     <!--Navigation end-->
 
@@ -263,8 +263,17 @@
 
     <script>
         $(document).ready(function(){
-            $('.sidenav').sidenav();
-            $('.slider').slider();
+            firebase.auth().onAuthStateChanged(function(user) {
+              if (user) {
+                window.location.assign('./index_signin.html');
+              } else {
+                // No user is signed in.
+                console.log("not signed in");
+                $('.sidenav').sidenav();
+                $('.slider').slider();
+            
+              }
+            });
         });
        
     </script>
