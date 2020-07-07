@@ -44,7 +44,15 @@ function onLoad() {
 
 $(document).ready(function(){
     var phone_no = localStorage.getItem('phone');
-
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (!user) {
+            // No user is signed in.
+            console.log("not signed in");
+              window.location.assign('./signin.html');
+          
+        } else {
+      
+        
     $("#edit-btn").click(function(){
         $("#edit-btn").hide();
         $("#submit-btn").show();
@@ -87,4 +95,6 @@ $(document).ready(function(){
         .then(() => console.log('updated info'))
         .catch(err => console.error(err))
     })
+}
+});
 });
