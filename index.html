@@ -30,8 +30,8 @@
 
     <ul class="sidenav" id="mobile-demo">
     <li id="login-mob"><a href="signin.html">Login/Sign-Up</a></li>
-    <li id="my_profile"><a href="my_profile.html">My Profile</a></li>
-    <li id="signOut"><a>Sign-Out</a></li>
+    <li id="my_profile_mob"><a href="my_profile.html">My Profile</a></li>
+    <li id="signOut_mob"><a>Sign-Out</a></li>
     </ul>
     <!--Navigation end-->
 
@@ -286,16 +286,31 @@
                 $('#login-mob').hide();
                 $('#my_profile').show();
                 $('#signOut').show();
+                $('#my_profile_mob').show();
+                $('#signOut_mob').show();
               } else {
                 // No user is signed in.
                 console.log("not signed in");
                 $('#login').show();
                 $('#login-mob').show();
+                $('#my_profile_mob').hide();
                 $('#my_profile').hide();
+                $('#signOut_mob').hide();
                 $('#signOut').hide();
               }
             });
             $('#signOut').click(()=> {
+              firebase.auth().signOut()
+              .then(() => {
+                console.log('Signed Out');
+                localStorage.removeItem('phone');
+                window.location.assign('./index.html');
+              })
+              .catch(e=>{
+              console.error('Sign Out Error', e);
+              });
+            });
+            $('#signOut_mob').click(()=> {
               firebase.auth().signOut()
               .then(() => {
                 console.log('Signed Out');
