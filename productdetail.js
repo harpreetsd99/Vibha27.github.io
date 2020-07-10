@@ -1,4 +1,5 @@
 const product_name = document.location.href.split('?')[1].split('=')[1];
+const url = document.location.href + localStorage.getItem('phone');
 console.log(product_name);
 const db = firebase.firestore();
 var storageRef = firebase.storage().ref();
@@ -555,34 +556,35 @@ docRef.get().then(function(doc) {
 
 
 
-var share = function(social, text, url)
-{
-    if(social != "fb" && social != "twitter" && social != "plus" && social != "pinterest") 
-    { 
-        console.log("Share not found"); 
-        return false; 
-    }
+// var share = function(social, text, url)
+// {
+//     if(social != "fb" && social != "twitter" && social != "plus" && social != "pinterest") 
+//     { 
+//         console.log("Share not found"); 
+//         return false; 
+//     }
 
-    this.text = encodeURIComponent(text);
-    var share_url = encodeURIComponent(url) || encodeURIComponent(location.href);
+//     this.text = encodeURIComponent(text);
+//     var share_url = encodeURIComponent(url) || encodeURIComponent(location.href);
 
-    switch(social) {
+//     switch(social) {
 
-        case "fb":
-            var sharer = "https://www.facebook.com/sharer/sharer.php?u=" + share_url;
-            window.open(sharer, 'sharer', 'width=626,height=436');
-        break;
+//         case "fb":
+//             var sharer = "https://www.facebook.com/sharer/sharer.php?u=" + share_url;
+//             window.open(sharer, 'sharer', 'width=626,height=436');
+//         break;
 
-        case "twitter": 
-            var sharer = "http://twitter.com/share?text="+text+"&url="+share_url;
-            window.open(sharer, 'sharer', 'width=626,height=436');
-        break;
+//         case "twitter": 
+//             var sharer = "http://twitter.com/share?text="+text+"&url="+share_url;
+//             window.open(sharer, 'sharer', 'width=626,height=436');
+//         break;
 
-        case "plus":
-            var sharer = "https://plus.google.com/share?url=" + share_url;
-            window.open(sharer, 'sharer', 'width=626,height=436'); 
-        break;
+//         case "plus":
+//             var sharer = "https://plus.google.com/share?url=" + share_url;
+//             window.open(sharer, 'sharer', 'width=626,height=436'); 
+//         break;
 
         
-    }
-}
+//     }
+// }
+document.getElementById('buttons').innerHTML = `<button class='btn btn-success btn-lg' data-sharer='whatsapp' data-title='Buy product' data-web='https://web.whatsapp.com/' data-url='${url}'>Whatsapp</button> <button class='btn btn-primary btn-lg' data-sharer='facebook' data-hashtag='hashtag' data-url='${url}'>Facebook</button>`
