@@ -45,7 +45,12 @@
 							<h1 class="title-main" id = "productname"></h1> 
 							<a href="http://whatsapp://send?text=Vibha27.github.io" data-original-title="whatsapp" rel="tooltip" class="btn btn-whatsapp" data-placement="left">
 								<i class="small material-icons black-text darken-1">share</i>
-							</a> 
+							</a>
+							<button class="sharer"
+							data-sharer="facebook" 
+							data-url="https://google.com">
+							Share on Facebook
+							</button> 
 								<hr id="hr">
 						</div>
 					</div>
@@ -260,7 +265,8 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    </script>
+	</script>
+	<script src="path/to/sharer.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="productdetail.js"></script>
