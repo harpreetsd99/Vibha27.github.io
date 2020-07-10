@@ -553,3 +553,36 @@ docRef.get().then(function(doc) {
     console.log("Error getting document:", error);
 });
 
+
+
+var share = function(social, text, url)
+{
+    if(social != "fb" && social != "twitter" && social != "plus" && social != "pinterest") 
+    { 
+        console.log("Share not found"); 
+        return false; 
+    }
+
+    this.text = encodeURIComponent(text);
+    var share_url = encodeURIComponent(url) || encodeURIComponent(location.href);
+
+    switch(social) {
+
+        case "fb":
+            var sharer = "https://www.facebook.com/sharer/sharer.php?u=" + share_url;
+            window.open(sharer, 'sharer', 'width=626,height=436');
+        break;
+
+        case "twitter": 
+            var sharer = "http://twitter.com/share?text="+text+"&url="+share_url;
+            window.open(sharer, 'sharer', 'width=626,height=436');
+        break;
+
+        case "plus":
+            var sharer = "https://plus.google.com/share?url=" + share_url;
+            window.open(sharer, 'sharer', 'width=626,height=436'); 
+        break;
+
+        
+    }
+}
