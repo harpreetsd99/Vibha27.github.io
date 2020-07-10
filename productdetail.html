@@ -5,6 +5,10 @@
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="icon" type="image" href="img/product-detail.png">
 	<link rel="stylesheet" type="text/css" href="product-detail-preview.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 	<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -31,6 +35,24 @@
 			<li><a href="#">Account&nbsp;<i class="large material-icons">person_outline</i></a></li>
 			<li><a href="#">Your Cart<i class="large material-icons">shopping_cart</i></a></li>
 	   </ul>
+	   <!-- Share Modal -->
+	   <div class="modal fade mx-25" id="myModal" role="dialog">
+		<!-- <div class="modal-dialog"> -->
+		
+		<!--Share Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Share On</h4>
+			</div>
+			<div class="modal-body">
+				<button class="btn btn-success btn-lg" data-sharer="whatsapp" data-title="But product" data-web="https://web.whatsapp.com/" data-url="https://Vibha27.github.io/">Whatsapp</button> 
+				<button class="btn btn-primary btn-lg" data-sharer="facebook" data-hashtag="hashtag" data-url="https://Vibha27.github.io/">Facebook</button>
+			</div>
+		</div>	
+		
+		<!-- </div> -->
+		</div>
+
 	<main>
 		<div class="row">
 			<div id="product-img-cont" class="col s12 m6">
@@ -43,11 +65,11 @@
 					<div class="row">
 						<div class="title">
 							<h1 class="title-main" id = "productname"></h1> 
-							<a href="http://whatsapp://send?text=Vibha27.github.io" data-original-title="whatsapp" rel="tooltip" class="btn btn-whatsapp" data-placement="left">
+							<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
 								<i class="small material-icons black-text darken-1">share</i>
-							</a>
-							<button class="button" data-sharer="twitter" data-title="Checkout Sharer.js!" data-hashtags="awesome, sharer.js" data-url="https://ellisonleao.github.io/sharer.js/">Share on Twitter</button> 
-								<hr id="hr">
+								
+							</button>
+							<hr id="hr">
 						</div>
 					</div>
 					<div class="row">
@@ -135,41 +157,7 @@
 							</sup> -->
 						</div>
 					</div>
-					<!-- <script type="text/javascript">
-						$(document).ready(function(){
-    var num = parseInt($("#numcheckpoint").text());
-    if(num>0){
-        $("checkpoint-content").show();
-      
-        for(i=1;i<=num;i++){
-            $("#checkpoint-num").append(
-                `<div class="bullet${i} bull left"><span id="num${i}">${i}</span><i class="material-icons">arrow_drop_down</i></div>`
-			);
-		}
-		$("#checkpoint").append($("#checkpoint-num").html());
-            // $("#qty-checkpoint").append($("#label-qty").html());
-            // $("#price-checkpoint").append($("#label-price").html());
-        for(i=1;i<=num;i++){
-			$("#qty-checkpoint").append(
-				`<sup id="label-qty${i}">
-	  			<label>500</label>
-	  			</sup>`
-			);
-			$("#price-checkpoint").append(
-				`<sup  id="label-price${i}">
-				<label>25&#8377;</label>
-				</sup>`
-			);
-            // $("#label-qty").clone().insertAfter("#label-qty");
-            // $("#label-price").clone().insertAfter("#label-price");
-        }
-    }else{
-        $("#checkpoint-details").hide();
-    }
-});
-
-
-					</script> -->
+					
 					<div class="row">
 						<div class="btns center">
 							<a  class="waves-effect waves-light btn orange darken-1"><i class="material-icons right">shopping_basket</i>Add To Cart</a>
@@ -262,6 +250,8 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 	</script>
+
+	
 	<script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
